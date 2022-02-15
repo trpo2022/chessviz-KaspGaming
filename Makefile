@@ -1,7 +1,10 @@
-all: main
+all: chess run remove
 
-main: main.c
-	gcc -Wall -Werror -o main main.c
+chess: chess.c
+	gcc -Wall -Werror -o chess chess.c
 
-hello: main
-	./main
+run: chess
+	./chess
+
+remove: chess	
+	rm chess
