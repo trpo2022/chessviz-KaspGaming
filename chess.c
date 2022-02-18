@@ -27,5 +27,6 @@ void printChess()
 int main()
 {
     printChess();
+    return 0;
 }
 
