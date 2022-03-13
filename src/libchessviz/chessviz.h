@@ -1,5 +1,6 @@
 #pragma once 
 #include <iostream>
+#include <clocale>
 
 #define BOARD_SIZE 8 
 
