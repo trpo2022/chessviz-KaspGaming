@@ -6,7 +6,6 @@
 #include <string>
 
 #define BOARD_SIZE 8
-#define MOTION_SIZE 4
 
 using namespace std;
 
