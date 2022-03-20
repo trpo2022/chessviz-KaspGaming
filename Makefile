@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra 
 CPPFLAGS = -MMD
 CHESS = bin/chess 
 
