@@ -173,4 +173,3 @@ int turn(
     } else
         return 1;
 }
-
