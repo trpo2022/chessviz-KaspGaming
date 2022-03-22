@@ -2,7 +2,7 @@ CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -MMD
 CHESS = bin/chess 
 
-all: chess-start
+all: $(CHESS)
 
 chess-start: $(CHESS)
 	./$(CHESS)
