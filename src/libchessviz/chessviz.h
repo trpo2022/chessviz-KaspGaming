@@ -20,6 +20,14 @@ void print_board(char chess_board[BOARD_SIZE][BOARD_SIZE]);
 
 void translation(string step, motion& motion);
 
-bool check_step(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_SIZE], bool move_white);
+bool check_step(
+        string step,
+        motion motion,
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        bool move_white);
 
-int turn(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_SIZE], bool& move_white);
+int turn(
+        string step,
+        motion motion,
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        bool& move_white);

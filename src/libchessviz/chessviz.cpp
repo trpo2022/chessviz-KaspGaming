@@ -23,62 +23,124 @@ void translation(string step, motion& motion)
     motion.x2 = (int)step[3] - (int)'a';
 }
 
-bool check_step(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_SIZE], bool move_white)
+bool check_step(
+        string step,
+        motion motion,
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        bool move_white)
 {
     switch (step.size()) {
     case 5:
-        if (!((step[2] == '-') || (step[2] == 'x')))
+        if (!((step[2] == '-') || (step[2] == 'x'))) {
+            cout << "\nError: Unknown step type" << endl;
             return false;
+        }
         if ((motion.x1 > 7) || (motion.x1 < 0) || (motion.x2 > 7)
             || (motion.x2 < 0) || (motion.y1 > 7) || (motion.y1 < 0)
-            || (motion.y2 > 7) || (motion.y2 < 0))
+            || (motion.y2 > 7) || (motion.y2 < 0)) {
+            cout << "\nError: Going off the board" << endl;
             return false;
-        if (chess_board[motion.y1][motion.x1] == ' ')
+        }
+        if (chess_board[motion.y1][motion.x1] == ' ') {
+            cout << "\nError: The starting cell is empty" << endl;
             return false;
+        }
         if (!((chess_board[motion.y1][motion.x1] == 'p')
-              || (chess_board[motion.y1][motion.x1] == 'P')))
+              || (chess_board[motion.y1][motion.x1] == 'P'))) {
+            cout << "\nError: The input must move pawns" << endl;
             return false;
+        }
         if (step[2] == '-') {
-            if (motion.x1 != motion.x2)
+            if (motion.x1 != motion.x2) {
+                cout << "\nError: Pawns only move straight ahead" << endl;
                 return false;
-            if (chess_board[motion.y2][motion.x2] != ' ')
+            }
+            if (chess_board[motion.y2][motion.x2] != ' ') {
+                cout << "\nError: You cannot make a silent move to another "
+                        "piece"
+                     << endl;
                 return false;
+            }
             if (chess_board[motion.y1][motion.x1] == 'P') {
-                if (move_white == false) return false;
-		if (motion.y1 == 6) {
+                if (move_white == false) {
+                    cout << "\nError: Black must go" << endl;
+                    return false;
+                }
+                if (motion.y1 == 6) {
                     if ((motion.y1 - motion.y2 > 2)
-                        || (motion.y1 - motion.y2 < 1))
+                        || (motion.y1 - motion.y2 < 1)) {
+                        cout << "\nError: From the first move, pawns can move "
+                                "1-2 squares"
+                             << endl;
                         return false;
+                    }
                 } else {
-                    if (motion.y1 - motion.y2 != 1)
+                    if (motion.y1 - motion.y2 != 1) {
+                        cout << "\nError: After the first move, pawns can only "
+                                "move 1 square forward"
+                             << endl;
                         return false;
+                    }
                 }
             }
             if (chess_board[motion.y1][motion.x1] == 'p') {
-                if (move_white == true) return false;
+                if (move_white == true) {
+                    cout << "\nError: White must go" << endl;
+                    return false;
+                }
                 if (motion.y1 == 1) {
                     if ((motion.y2 - motion.y1 > 2)
-                        || (motion.y2 - motion.y1 < 1))
+                        || (motion.y2 - motion.y1 < 1)) {
+                        cout << "\nError: From the first move, pawns can "
+                                "move 1-2 squares"
+                             << endl;
                         return false;
+                    }
                 } else {
-                    if (motion.y2 - motion.y1 != 1)
+                    if (motion.y2 - motion.y1 != 1) {
+                        cout << "\nError: After the first move, pawns can "
+                                "only move 1 square forward"
+                             << endl;
                         return false;
+                    }
                 }
             }
         }
         if (step[2] == 'x') {
-            if (chess_board[motion.y2][motion.x2] == ' ')
+            if (chess_board[motion.y2][motion.x2] == ' ') {
+                cout << "\nError: You can't take an empty cage" << endl;
                 return false;
-            if (abs(motion.x1 - motion.x2) != 1)
+            }
+            if (abs(motion.x1 - motion.x2) != 1) {
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
                 return false;
+            }
             if ((chess_board[motion.y1][motion.x1] == 'P')
-                && (motion.y1 - motion.y2 != 1))
+                && (motion.y1 - motion.y2 != 1)) {
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
                 return false;
+            }
             if ((chess_board[motion.y1][motion.x1] == 'p')
-                && (motion.y2 - motion.y1 != 1))
+                && (motion.y2 - motion.y1 != 1)) {
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
                 return false;
-	    if ((move_white == true) && (chess_board[motion.y1][motion.x1] == 'p')) return false;
-	    if ((move_white == false) && (chess_board[motion.y1][motion.x1] == 'P')) return false;
+            }
+            if ((move_white == true)
+                && (chess_board[motion.y1][motion.x1] == 'p')) {
+                cout << "\nError: White must go" << endl;
+                return false;
+            }
+            if ((move_white == false)
+                && (chess_board[motion.y1][motion.x1] == 'P')) {
+                cout << "\nError: Black must go" << endl;
+                return false;
+            }
         }
         break;
     case 6:
@@ -91,7 +153,11 @@ bool check_step(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_S
     return true;
 }
 
-int turn(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_SIZE], bool& move_white)
+int turn(
+        string step,
+        motion motion,
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        bool& move_white)
 {
     char type;
     translation(step, motion);
@@ -103,7 +169,8 @@ int turn(string step, motion motion, char chess_board[BOARD_SIZE][BOARD_SIZE], b
             move_white = false;
         else
             move_white = true;
-	return 0;
-    } else return 1;
+        return 0;
+    } else
+        return 1;
 }
 
