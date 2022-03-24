@@ -19,9 +19,7 @@ int main()
     cout << "Добро пожаловть в шахматы! Пока что реализовано движение только "
             "пешек"
          << endl;
-    cout << "Для выхода из программы ведите в терминал что-нибудь не "
-            "относящееся к движению пешек\n"
-         << endl;
+    cout << "Для выхода из программы введите 'exit'\n" << endl;
     print_board(chess_board);
     string step;
     float number_of_turn = 1;
@@ -30,8 +28,15 @@ int main()
         cout << (int)number_of_turn << ". ";
         number_of_turn += 0.5;
         cin >> step;
-        if (turn(step, motion, chess_board, move_white) != 0)
-            return 1;
+        if (step == "exit") {
+            cout << "Successful exit" << endl;
+            break;
+        }
+        if (turn(step, motion, chess_board, move_white) != 0) {
+            cout << "Try again" << endl;
+            number_of_turn -= 0.5;
+            continue;
+        };
         print_board(chess_board);
         cout << endl;
     }
