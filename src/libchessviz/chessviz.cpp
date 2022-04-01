@@ -47,11 +47,15 @@ void translation(string step, motion& motion)
     }
 }
 
-bool king_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool error_output)
+bool king_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output)
 {
     if (!((chess_board[motion.y1][motion.x1] == 'K')
           || (chess_board[motion.y1][motion.x1] == 'k'))) {
-        if (error_output == true) cout << "\nError: Wrong body type" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong body type" << endl;
         return false;
     }
     if ((abs(motion.y2 - motion.y1) > 1) || (abs(motion.x2 - motion.x1) > 1)
@@ -62,11 +66,15 @@ bool king_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool err
     return true;
 }
 
-bool queen_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool error_output)
+bool queen_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output)
 {
     if (!((chess_board[motion.y1][motion.x1] == 'Q')
           || (chess_board[motion.y1][motion.x1] == 'q'))) {
-        if (error_output == true) cout << "\nError: Wrong body type" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong body type" << endl;
         return false;
     }
     if (!((abs(motion.x1 - motion.x2) == abs(motion.y1 - motion.y2))
@@ -173,11 +181,15 @@ bool queen_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool er
     return true;
 }
 
-bool rook_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool error_output)
+bool rook_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output)
 {
     if (!((chess_board[motion.y1][motion.x1] == 'R')
           || (chess_board[motion.y1][motion.x1] == 'r'))) {
-        if (error_output == true) cout << "\nError: Wrong body type" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong body type" << endl;
         return false;
     }
     if (!(((motion.y2 - motion.y1 == 0) && (abs(motion.x1 - motion.x2) > 0))
@@ -233,11 +245,15 @@ bool rook_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool err
     return true;
 }
 
-bool knight_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool error_output)
+bool knight_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output)
 {
     if (!((chess_board[motion.y1][motion.x1] == 'N')
           || (chess_board[motion.y1][motion.x1] == 'n'))) {
-        if (error_output == true) cout << "\nError: Wrong body type" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong body type" << endl;
         return false;
     }
     if (!(((abs(motion.y2 - motion.y1) == 2)
@@ -250,11 +266,15 @@ bool knight_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool e
     return true;
 }
 
-bool bishop_step(char chess_board[BOARD_SIZE][BOARD_SIZE], motion motion, bool error_output)
+bool bishop_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output)
 {
     if (!((chess_board[motion.y1][motion.x1] == 'B')
           || (chess_board[motion.y1][motion.x1] == 'b'))) {
-        if (error_output == true) cout << "\nError: Wrong body type" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong body type" << endl;
         return false;
     }
     if (!(abs(motion.x1 - motion.x2) == abs(motion.y1 - motion.y2))) {
@@ -536,7 +556,7 @@ bool check_step(
         }
         break;
     case 7:
-	error_output = false;
+        error_output = false;
         if (step[6] != '#') {
             cout << "\nError: Wrong step" << endl;
             return false;

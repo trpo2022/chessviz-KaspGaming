@@ -39,11 +39,14 @@ int main()
         };
         print_board(chess_board);
         cout << endl;
-	if ((step[6] == '#') || (step[5] == '#')){
-	    if (move_white == true) cout << "Black Wins!" << endl;;
-	    if (move_white == false) cout << "White Wins!" << endl;
-	    break;
-	}
+        if ((step[6] == '#') || (step[5] == '#')) {
+            if (move_white == true)
+                cout << "Black Wins!" << endl;
+            ;
+            if (move_white == false)
+                cout << "White Wins!" << endl;
+            break;
+        }
     }
     return 0;
 }
