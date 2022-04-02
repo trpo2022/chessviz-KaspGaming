@@ -49,13 +49,15 @@ bool pawn_step(
         string step,
         motion motion,
         char chess_board[BOARD_SIZE][BOARD_SIZE],
-        bool move_white, bool error_output);
-	
+        bool move_white,
+        bool error_output);
+
 bool check_step(
         string step,
         motion motion,
         char chess_board[BOARD_SIZE][BOARD_SIZE],
-        bool move_white, bool output);
+        bool move_white,
+        bool output);
 
 int turn(
         string step,
