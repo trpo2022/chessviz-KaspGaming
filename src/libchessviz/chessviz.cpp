@@ -60,7 +60,8 @@ bool king_step(
     }
     if ((abs(motion.y2 - motion.y1) > 1) || (abs(motion.x2 - motion.x1) > 1)
         || ((motion.x2 - motion.x1 == 0) && (motion.y2 - motion.y1 == 0))) {
-        cout << "\nError: Wrong move" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong move" << endl;
         return false;
     }
     return true;
@@ -81,7 +82,8 @@ bool queen_step(
           || ((motion.y2 - motion.y1 == 0) && (abs(motion.x1 - motion.x2) > 0))
           || ((motion.x2 - motion.x1 == 0)
               && (abs(motion.y1 - motion.y2) > 0)))) {
-        cout << "\nError: Wrong move" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong move" << endl;
         return false;
     }
     if ((motion.y2 - motion.y1 == 0) && (abs(motion.x1 - motion.x2) > 0)) {
@@ -89,7 +91,8 @@ bool queen_step(
             motion.x1++;
             while (motion.x2 > motion.x1) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x1++;
@@ -99,7 +102,8 @@ bool queen_step(
             motion.x2++;
             while (motion.x1 > motion.x2) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -111,7 +115,8 @@ bool queen_step(
             motion.y1++;
             while (motion.y2 > motion.y1) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.y1++;
@@ -121,10 +126,11 @@ bool queen_step(
             motion.y2++;
             while (motion.y1 > motion.y2) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
-                motion.x2++;
+                motion.y2++;
             }
         }
     }
@@ -134,7 +140,8 @@ bool queen_step(
             motion.y2++;
             while ((motion.x1 > motion.x2) && (motion.y1 > motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -146,7 +153,8 @@ bool queen_step(
             motion.y2--;
             while ((motion.x1 > motion.x2) && (motion.y1 < motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -158,7 +166,8 @@ bool queen_step(
             motion.y2++;
             while ((motion.x1 < motion.x2) && (motion.y1 > motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2--;
@@ -170,7 +179,8 @@ bool queen_step(
             motion.y1++;
             while ((motion.x1 < motion.x2) && (motion.y1 < motion.y2)) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x1++;
@@ -195,7 +205,8 @@ bool rook_step(
     if (!(((motion.y2 - motion.y1 == 0) && (abs(motion.x1 - motion.x2) > 0))
           || ((motion.x2 - motion.x1 == 0)
               && (abs(motion.y1 - motion.y2) > 0)))) {
-        cout << "\nError: Wrong move" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong move" << endl;
         return false;
     }
     if ((motion.y2 - motion.y1 == 0) && (abs(motion.x1 - motion.x2) > 0)) {
@@ -203,7 +214,8 @@ bool rook_step(
             motion.x1++;
             while (motion.x2 > motion.x1) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x1++;
@@ -213,7 +225,8 @@ bool rook_step(
             motion.x2++;
             while (motion.x1 > motion.x2) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -225,7 +238,8 @@ bool rook_step(
             motion.y1++;
             while (motion.y2 > motion.y1) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.y1++;
@@ -235,10 +249,11 @@ bool rook_step(
             motion.y2++;
             while (motion.y1 > motion.y2) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
-                motion.x2++;
+                motion.y2++;
             }
         }
     }
@@ -260,7 +275,8 @@ bool knight_step(
            && (abs(motion.x1 - motion.x2) == 1))
           || ((abs(motion.x2 - motion.x1) == 2)
               && (abs(motion.y1 - motion.y2) == 1)))) {
-        cout << "\nError: Wrong move" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong move" << endl;
         return false;
     }
     return true;
@@ -278,7 +294,8 @@ bool bishop_step(
         return false;
     }
     if (!(abs(motion.x1 - motion.x2) == abs(motion.y1 - motion.y2))) {
-        cout << "\nError: Wrong move" << endl;
+        if (error_output == true)
+            cout << "\nError: Wrong move" << endl;
         return false;
     }
     if (abs(motion.x1 - motion.x2) == abs(motion.y1 - motion.y2)) {
@@ -287,7 +304,8 @@ bool bishop_step(
             motion.y2++;
             while ((motion.x1 > motion.x2) && (motion.y1 > motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -299,7 +317,8 @@ bool bishop_step(
             motion.y2--;
             while ((motion.x1 > motion.x2) && (motion.y1 < motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2++;
@@ -311,7 +330,8 @@ bool bishop_step(
             motion.y2++;
             while ((motion.x1 < motion.x2) && (motion.y1 > motion.y2)) {
                 if (chess_board[motion.y2][motion.x2] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x2--;
@@ -323,7 +343,8 @@ bool bishop_step(
             motion.y1++;
             while ((motion.x1 < motion.x2) && (motion.y1 < motion.y2)) {
                 if (chess_board[motion.y1][motion.x1] != ' ') {
-                    cout << "Error: You cannot step over pieces" << endl;
+                    if (error_output == true)
+                        cout << "Error: You cannot step over pieces" << endl;
                     return false;
                 }
                 motion.x1++;
@@ -338,78 +359,106 @@ bool pawn_step(
         string step,
         motion motion,
         char chess_board[BOARD_SIZE][BOARD_SIZE],
-        bool move_white)
+        bool move_white,
+        bool error_output)
 {
     if (!((step[2] == '-') || (step[2] == 'x'))) {
-        cout << "\nError: Unknown step type" << endl;
+        if (error_output == true)
+            cout << "\nError: Unknown step type" << endl;
         return false;
     }
     if ((motion.x1 > 7) || (motion.x1 < 0) || (motion.x2 > 7) || (motion.x2 < 0)
         || (motion.y1 > 7) || (motion.y1 < 0) || (motion.y2 > 7)
         || (motion.y2 < 0)) {
-        cout << "\nError: Going off the board" << endl;
+        if (error_output == true)
+            cout << "\nError: Going off the board" << endl;
         return false;
     }
     if (chess_board[motion.y1][motion.x1] == ' ') {
-        cout << "\nError: The starting cell is empty" << endl;
+        if (error_output == true)
+            cout << "\nError: The starting cell is empty" << endl;
         return false;
     }
     if (!((chess_board[motion.y1][motion.x1] == 'p')
           || (chess_board[motion.y1][motion.x1] == 'P'))) {
-        cout << "\nError: The input must move pawns" << endl;
+        if (error_output == true)
+            cout << "\nError: The input must move pawns" << endl;
         return false;
     }
     if (step[2] == '-') {
         if (motion.x1 != motion.x2) {
-            cout << "\nError: Pawns only move straight ahead" << endl;
+            if (error_output == true)
+                cout << "\nError: Pawns only move straight ahead" << endl;
             return false;
         }
         if (chess_board[motion.y2][motion.x2] != ' ') {
-            cout << "\nError: You cannot make a silent move to another "
-                    "piece"
-                 << endl;
+            if (error_output == true)
+                cout << "\nError: You cannot make a silent move to another "
+                        "piece"
+                     << endl;
             return false;
         }
         if (chess_board[motion.y1][motion.x1] == 'P') {
             if (move_white == false) {
-                cout << "\nError: Black must go" << endl;
+                if (error_output == true)
+                    cout << "\nError: Black must go" << endl;
                 return false;
             }
             if (motion.y1 == 6) {
                 if ((motion.y1 - motion.y2 > 2)
                     || (motion.y1 - motion.y2 < 1)) {
-                    cout << "\nError: From the first move, pawns can move "
-                            "1-2 squares"
-                         << endl;
+                    if (error_output == true)
+                        cout << "\nError: From the first move, pawns can move "
+                                "1-2 squares"
+                             << endl;
+                    return false;
+                }
+                if ((motion.y1 - motion.y2 == 2)
+                    && (chess_board[(motion.y1 + motion.y2) / 2][motion.x1]
+                        != ' ')) {
+                    if (error_output == true)
+                        cout << "\nError: You can't step over" << endl;
                     return false;
                 }
             } else {
                 if (motion.y1 - motion.y2 != 1) {
-                    cout << "\nError: After the first move, pawns can only "
-                            "move 1 square forward"
-                         << endl;
+                    if (error_output == true)
+                        cout << "\nError: After the first move, pawns can only "
+                                "move 1 square forward"
+                             << endl;
                     return false;
                 }
             }
         }
         if (chess_board[motion.y1][motion.x1] == 'p') {
             if (move_white == true) {
-                cout << "\nError: White must go" << endl;
+                if (error_output == true)
+                    cout << "\nError: White must go" << endl;
                 return false;
             }
             if (motion.y1 == 1) {
                 if ((motion.y2 - motion.y1 > 2)
                     || (motion.y2 - motion.y1 < 1)) {
-                    cout << "\nError: From the first move, pawns can "
-                            "move 1-2 squares"
-                         << endl;
+                    if (error_output == true)
+                        cout << "\nError: From the first move, pawns can "
+                                "move 1-2 squares"
+                             << endl;
                     return false;
                 }
+                if ((motion.y2 - motion.y1 == 2)
+                    && (chess_board[(motion.y1 + motion.y2) / 2][motion.x1]
+                        != ' ')) {
+                    if (error_output == true)
+                        cout << "\nError: You can't step over" << endl;
+                    return false;
+                }
+
             } else {
                 if (motion.y2 - motion.y1 != 1) {
-                    cout << "\nError: After the first move, pawns can "
-                            "only move 1 square forward"
-                         << endl;
+                    if (error_output == true)
+                        cout << "\nError: After the first move, pawns can "
+                                "only move 1 square forward"
+                             << endl;
                     return false;
                 }
             }
@@ -417,37 +466,43 @@ bool pawn_step(
     }
     if (step[2] == 'x') {
         if (chess_board[motion.y2][motion.x2] == ' ') {
-            cout << "\nError: You can't take an empty cage" << endl;
+            if (error_output == true)
+                cout << "\nError: You can't take an empty cage" << endl;
             return false;
         }
         if (abs(motion.x1 - motion.x2) != 1) {
-            cout << "\nError: You can only take diagonally 1 cell to "
-                    "the sides"
-                 << endl;
+            if (error_output == true)
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
             return false;
         }
         if ((chess_board[motion.y1][motion.x1] == 'P')
             && (motion.y1 - motion.y2 != 1)) {
-            cout << "\nError: You can only take diagonally 1 cell to "
-                    "the sides"
-                 << endl;
+            if (error_output == true)
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
             return false;
         }
         if ((chess_board[motion.y1][motion.x1] == 'p')
             && (motion.y2 - motion.y1 != 1)) {
-            cout << "\nError: You can only take diagonally 1 cell to "
-                    "the sides"
-                 << endl;
+            if (error_output == true)
+                cout << "\nError: You can only take diagonally 1 cell to "
+                        "the sides"
+                     << endl;
             return false;
         }
         if ((move_white == true)
             && (chess_board[motion.y1][motion.x1] == 'p')) {
-            cout << "\nError: White must go" << endl;
+            if (error_output == true)
+                cout << "\nError: White must go" << endl;
             return false;
         }
         if ((move_white == false)
             && (chess_board[motion.y1][motion.x1] == 'P')) {
-            cout << "\nError: Black must go" << endl;
+            if (error_output == true)
+                cout << "\nError: Black must go" << endl;
             return false;
         }
         if (((move_white == true)
@@ -456,7 +511,8 @@ bool pawn_step(
             || ((move_white == false)
                 && ((chess_board[motion.y2][motion.x2] >= 97)
                     && (chess_board[motion.y2][motion.x2] <= 122)))) {
-            cout << "\nError: You cannot attack your pieces" << endl;
+            if (error_output == true)
+                cout << "\nError: You cannot attack your pieces" << endl;
             return false;
         }
     }
@@ -468,52 +524,65 @@ bool check_step(
         string step,
         motion motion,
         char chess_board[BOARD_SIZE][BOARD_SIZE],
-        bool move_white)
+        bool move_white,
+        bool output)
 {
-    bool error_output = true;
+    bool error_output;
+    if (output == false)
+        error_output = false;
+    else
+        error_output = true;
     switch (step.size()) {
     case 5:
-        if (pawn_step(step, motion, chess_board, move_white) == false)
+        if (pawn_step(step, motion, chess_board, move_white, error_output)
+            == false)
             return false;
         break;
     case 6:
         if (step[5] != '#') {
             if (!((step[3] == '-') || (step[3] == 'x'))) {
-                cout << "\nError: Unknown step type" << endl;
+                if (output == true)
+                    cout << "\nError: Unknown step type" << endl;
                 return false;
             }
             if ((motion.x1 > 7) || (motion.x1 < 0) || (motion.x2 > 7)
                 || (motion.x2 < 0) || (motion.y1 > 7) || (motion.y1 < 0)
                 || (motion.y2 > 7) || (motion.y2 < 0)) {
-                cout << "\nError: Going off the board" << endl;
+                if (output == true)
+                    cout << "\nError: Going off the board" << endl;
                 return false;
             }
             if (chess_board[motion.y1][motion.x1] == ' ') {
-                cout << "\nError: The starting cell is empty" << endl;
+                if (output == true)
+                    cout << "\nError: The starting cell is empty" << endl;
                 return false;
             }
             if ((chess_board[motion.y2][motion.x2] != ' ')
                 && (step[3] == '-')) {
-                cout << "\nError: You cannot make a silent move to another "
-                        "piece"
-                     << endl;
+                if (output == true)
+                    cout << "\nError: You cannot make a silent move to another "
+                            "piece"
+                         << endl;
                 return false;
             }
             if ((chess_board[motion.y2][motion.x2] == ' ')
                 && (step[3] == 'x')) {
-                cout << "\nError: You can't take an empty cage" << endl;
+                if (output == true)
+                    cout << "\nError: You can't take an empty cage" << endl;
                 return false;
             }
             if ((move_white == false)
                 && ((chess_board[motion.y1][motion.x1] >= 65)
                     && (chess_board[motion.y1][motion.x1] <= 90))) {
-                cout << "\nError: Black must go" << endl;
+                if (output == true)
+                    cout << "\nError: Black must go" << endl;
                 return false;
             }
             if ((move_white == true)
                 && ((chess_board[motion.y1][motion.x1] >= 97)
                     && (chess_board[motion.y1][motion.x1] <= 122))) {
-                cout << "\nError: White must go" << endl;
+                if (output == true)
+                    cout << "\nError: White must go" << endl;
                 return false;
             }
             if (((move_white == true)
@@ -522,59 +591,86 @@ bool check_step(
                 || ((move_white == false)
                     && ((chess_board[motion.y2][motion.x2] >= 97)
                         && (chess_board[motion.y2][motion.x2] <= 122)))) {
-                cout << "\nError: You cannot attack your pieces" << endl;
+                if (output == true)
+                    cout << "\nError: You cannot attack your pieces" << endl;
                 return false;
             }
             if (step[0] == 'K') { // King
                 if (king_step(chess_board, motion, error_output) == false)
                     return false;
+            } else if (step[0] == 'n') {
+                if (output == true)
+                    cout << "\nError: Body type is capitalized" << endl;
+                return false;
             }
             if (step[0] == 'Q') { // Queen
                 if (queen_step(chess_board, motion, error_output) == false)
                     return false;
+            } else if (step[0] == 'n') {
+                if (output == true)
+                    cout << "\nError: Body type is capitalized" << endl;
+                return false;
             }
             if (step[0] == 'R') { // Rook
                 if (rook_step(chess_board, motion, error_output) == false)
                     return false;
+            } else if (step[0] == 'n') {
+                if (output == true)
+                    cout << "\nError: Body type is capitalized" << endl;
+                return false;
             }
             if (step[0] == 'N') { // kNight
                 if (knight_step(chess_board, motion, error_output) == false)
                     return false;
+            } else if (step[0] == 'n') {
+                if (output == true)
+                    cout << "\nError: Body type is capitalized" << endl;
+                return false;
             }
             if (step[0] == 'B') { // Bishop
                 if (bishop_step(chess_board, motion, error_output) == false)
                     return false;
+            } else if (step[0] == 'n') {
+                if (output == true)
+                    cout << "\nError: Body type is capitalized" << endl;
+                return false;
             }
         }
         if (step[5] == '#') {
             if (step[2] != 'x') {
-                cout << "\nError: Wrong mate" << endl;
+                if (output == true)
+                    cout << "\nError: Wrong mate" << endl;
                 return false;
             }
-            if (pawn_step(step, motion, chess_board, move_white) == false)
+            if (pawn_step(step, motion, chess_board, move_white, error_output)
+                == false)
                 return false;
         }
         break;
     case 7:
         error_output = false;
         if (step[6] != '#') {
-            cout << "\nError: Wrong step" << endl;
+            if (output == true)
+                cout << "\nError: Wrong step" << endl;
             return false;
         }
         if (step[3] != 'x') {
-            cout << "\nError: Wrong mate" << endl;
+            if (output == true)
+                cout << "\nError: Wrong mate" << endl;
             return false;
         }
         if ((move_white == false)
             && ((chess_board[motion.y1][motion.x1] >= 65)
                 && (chess_board[motion.y1][motion.x1] <= 90))) {
-            cout << "\nError: Black must go" << endl;
+            if (output == true)
+                cout << "\nError: Black must go" << endl;
             return false;
         }
         if ((move_white == true)
             && ((chess_board[motion.y1][motion.x1] >= 97)
                 && (chess_board[motion.y1][motion.x1] <= 122))) {
-            cout << "\nError: White must go" << endl;
+            if (output == true)
+                cout << "\nError: White must go" << endl;
             return false;
         }
         if (((move_white == true)
@@ -583,7 +679,8 @@ bool check_step(
             || ((move_white == false)
                 && ((chess_board[motion.y2][motion.x2] >= 97)
                     && (chess_board[motion.y2][motion.x2] <= 122)))) {
-            cout << "\nError: You cannot attack your pieces" << endl;
+            if (output == true)
+                cout << "\nError: You cannot attack your pieces" << endl;
             return false;
         }
         if ((knight_step(chess_board, motion, error_output) == false)
@@ -607,8 +704,9 @@ int turn(
         bool& move_white)
 {
     char type;
+    bool output = true;
     translation(step, motion);
-    if (check_step(step, motion, chess_board, move_white) == true) {
+    if (check_step(step, motion, chess_board, move_white, output) == true) {
         type = chess_board[motion.y1][motion.x1];
         chess_board[motion.y1][motion.x1] = ' ';
         chess_board[motion.y2][motion.x2] = type;

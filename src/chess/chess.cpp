@@ -1,4 +1,4 @@
-#include "libchessviz/chessviz.h"
+#include <libchessviz/chessviz.h>
 
 int main()
 {
@@ -13,7 +13,6 @@ int main()
                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
                {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
-
     system("clear");
     motion motion;
     cout << "Добро пожаловть в шахматы! Пока что реализовано движение только "
