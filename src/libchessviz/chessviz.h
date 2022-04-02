@@ -20,11 +20,42 @@ void print_board(char chess_board[BOARD_SIZE][BOARD_SIZE]);
 
 void translation(string step, motion& motion);
 
+bool king_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output);
+
+bool queen_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output);
+
+bool rook_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output);
+
+bool knight_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output);
+
+bool bishop_step(
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        motion motion,
+        bool error_output);
+
+bool pawn_step(
+        string step,
+        motion motion,
+        char chess_board[BOARD_SIZE][BOARD_SIZE],
+        bool move_white, bool error_output);
+	
 bool check_step(
         string step,
         motion motion,
         char chess_board[BOARD_SIZE][BOARD_SIZE],
-        bool move_white);
+        bool move_white, bool output);
 
 int turn(
         string step,
