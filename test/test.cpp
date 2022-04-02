@@ -2,14 +2,14 @@
 #include <libchessviz/chessviz.h>
 
 char chess_board[BOARD_SIZE][BOARD_SIZE]
-            = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
-               {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-               {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-               {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-               {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-               {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-               {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-               {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
+        = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+           {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+           {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
 
 motion motion;
 
@@ -27,7 +27,7 @@ CTEST(quiet_step_suite, quiet_running_true)
     string step = "e2-e4";
     translation(step, motion);
     bool result = check_step(step, motion, chess_board, true, false);
-    
+
     ASSERT_TRUE(result);
 }
 
@@ -77,7 +77,7 @@ CTEST(quiet_step_suite, move_to_non_empty_cell)
                {' ', ' ', ' ', ' ', 'p', ' ', ' ', ' '},
                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-               {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};	
+               {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
     string step = "e2-e4";
     translation(step, motion);
     bool result = check_step(step, motion, chess_board, true, false);
